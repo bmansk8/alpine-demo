@@ -1,10 +1,8 @@
 # alpine-demo
-======
  a simple apline js demo
- 
+
 
 ## install instructions
-======
 simply clone the repo then run
 ```
 npm install
