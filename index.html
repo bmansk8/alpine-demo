@@ -1,13 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+  <style>
+    .active {
+      background-color: red;
+    }
+
+    div {
+      padding: 2px;
+    }
+  </style>
+
 </head>
+
 <body>
-  
+
   <h1>hello world!</h1>
 
+  <div x-data="{name:''}">
+    <!--so x data is our data model we make a object with a value of name equal to string-->
+    <label for="name">Name:</label>
+    <input id="name" type="text" x-model="name" />
+    <!--then we bind name to the value of the input tag-->
+    <p x-text="name">
+      <!--then we display the value of name as text-->
+  </div>
+
+  <!--so : is a  shorthand for x-bind and @ is a shorthand for x-on that indicates the alpine should listen for events-->
+  <div x-data="{ show: false }">
+    <!--so we make boolean var we can toggle-->
+    <!--then onClick() / @click we toggle show value. then run or expression to add class-->
+    <button @click="show = !show" :aria-expanded="show ? 'true' : 'false'" :class="{ 'active': show }">
+      <!-- our class is equal to 'active' our css class and our bollean variable show-->
+      Toggle Button
+    </button>
+
+  </div>
+
+  <!--boolean once again-->
+  <div x-data="{ show: false }">
+    <!--we can toggle show-->
+    <!--we run our logic-->
+    <button @click="show = !show" :aria-expanded="show ? 'true' : 'false'">
+      Toggle Show
+    </button>
+    <div x-show="show">Hello world</div>
+  </div>
+
 </body>
+
 </html>
